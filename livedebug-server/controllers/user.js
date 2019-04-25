@@ -6,9 +6,11 @@ class UserController {
   static register(req, res) {
     let user = {
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      verificationCode: `${Math.round(Math.random()*899999) + 100000}`,
+      isVerified: false,
     };
-
+    
     User.create(user)
     .then(user => {
       res.status(201).json(user);

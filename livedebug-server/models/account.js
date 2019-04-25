@@ -12,7 +12,7 @@ const accountSchema = new Schema({
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'User'
   }
 })
 

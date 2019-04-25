@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <routing-view @myFavorite="myFavorite"/>
+    <routing-view :myFavorite="myFavorite"/>
   </div>
 </template>
 

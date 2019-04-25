@@ -74,6 +74,8 @@
 import Gallery from '@/components/Gallery.vue'
 
 export default {
+  name: 'collection',
+
   data () {
     const returnData = {
       search: '',

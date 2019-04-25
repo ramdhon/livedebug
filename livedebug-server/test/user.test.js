@@ -16,7 +16,7 @@ after(done => {
 let verificationCode = '';
 
 describe('Users', function() {
-  describe('POST /register', function() {
+  describe.only('POST /register', function() {
 
     it('should return status code 201 with response body created user', function(done) {
       let user = {

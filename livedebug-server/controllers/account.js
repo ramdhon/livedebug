@@ -18,11 +18,11 @@ class AccountController {
     if (req.body.hasOwnProperty('balance')) {
       acc = {
         balance: req.body.balance,
-        userId: req.user._id
+        // userId: req.user._id
       }
     } else {
       acc = {
-        userId: req.user._id
+        // userId: req.user._id
       }
     }
 

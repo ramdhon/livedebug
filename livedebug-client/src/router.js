@@ -2,16 +2,19 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import UserGallery from './views/UserGallery'
+import Collection from './views/Collection.vue'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/collection',
       name: 'collection',
-      component: () => import('./views/Collection.vue')
+      component: Collection
+      // component: () => import('./views/Collection.vue')
     },
     {
       path: '/',
