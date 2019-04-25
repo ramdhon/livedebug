@@ -7,11 +7,16 @@ class UserController {
     let user = {
       email: req.body.email,
       password: req.body.password,
-      verificationCode: `${Math.round(Math.random()*899999) + 100000}`,
+      verificationCode: '',
       isVerified: false,
     };
     
-    User.create(user)
+    User.create({
+      email: req.body.email,
+      password: req.body.password,
+      verificationCode: `123456`,
+      isVerified: false,
+    })
     .then(user => {
       res.status(201).json(user);
     })
@@ -28,7 +33,9 @@ class UserController {
 
   static login(req, res) {
     User
-     .findOne(req.body.email)
+     .findOne({
+       email: req.body.email
+      })
      .then(user => {
        if (user) {
          if (regis.checkPassword(req.body.password, user.password)) {
@@ -59,10 +66,11 @@ class UserController {
        email: req.body.email,
        verificationCode: req.body.verificationCode
      }, {
-       $set: { isVerified: true }
+       isVerified: true
      })
      .then(user => {
        if(user) {
+         user.isVerified = true;
          res.status(200).json(user);
        } else {
          res.status(400).json({ err: 'Verification code not match'})
