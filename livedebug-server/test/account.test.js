@@ -66,7 +66,7 @@ after(done => {
 
 describe('Account', function() {
   describe('POST /accounts/new ', function() {
-    it.only('should return status code 201 with response body created account', function(done) {
+    it('should return status code 201 with response body created account', function(done) {
       let account = {
         balance: 350000
       }
@@ -78,6 +78,10 @@ describe('Account', function() {
        .set('token', token)
        .end(function(err, res) {
          expect(err).to.be.null;
+         console.log('==================');
+         console.log(res.body);
+         console.log('==================');
+         console.log(res.err);
 
          expect(res).to.have.status(201);
          expect(res.body).to.be.an('object');
